@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.technical.challenge</groupId>
-    <artifactId>finance-transactions</artifactId>
+    <artifactId>financial-transactions</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>finance-transactions</name>
-    <description>finance-transactions</description>
+    <name>financial-transactions</name>
+    <description>financial-transactions</description>
     <url/>
     <licenses>
         <license/>

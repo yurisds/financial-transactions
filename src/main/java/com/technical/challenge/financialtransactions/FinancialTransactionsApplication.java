@@ -1,13 +1,13 @@
-package com.technical.challenge.financetransactions;
+package com.technical.challenge.financialtransactions;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FinanceTransactionsApplication {
+public class FinancialTransactionsApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FinanceTransactionsApplication.class, args);
+        SpringApplication.run(FinancialTransactionsApplication.class, args);
     }
 
 }

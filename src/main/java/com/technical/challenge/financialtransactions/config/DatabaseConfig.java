@@ -1,4 +1,4 @@
-package com.technical.challenge.financetransactions.config;
+package com.technical.challenge.financialtransactions.config;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.config.AbstractMongoClientConfiguration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @Configuration
-@EnableMongoRepositories(basePackages = "com.technical.challenge.financetransactions.repository")
+@EnableMongoRepositories(basePackages = "com.technical.challenge.financialtransactions.repository")
 public class DatabaseConfig extends AbstractMongoClientConfiguration {
 
     @Value("${db.config.database}")
