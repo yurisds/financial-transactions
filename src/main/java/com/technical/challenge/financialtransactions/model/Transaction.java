@@ -3,8 +3,10 @@ package com.technical.challenge.financialtransactions.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.UUID;
+
 @Document
-public class TransactionModel {
+public class Transaction {
 
     @Id
     private String transactionId;
@@ -17,11 +19,15 @@ public class TransactionModel {
     private String cardExpirationDate;
     private String cvv;
 
+    public Transaction() {
+        this.transactionId = UUID.randomUUID().toString();
+    }
+
     public String getTransactionId() {
         return transactionId;
     }
 
-    public TransactionModel setTransactionId(String transactionId) {
+    public Transaction setTransactionId(String transactionId) {
         this.transactionId = transactionId;
         return this;
     }
@@ -30,7 +36,7 @@ public class TransactionModel {
         return merchantCode;
     }
 
-    public TransactionModel setMerchantCode(String merchantCode) {
+    public Transaction setMerchantCode(String merchantCode) {
         this.merchantCode = merchantCode;
         return this;
     }
@@ -39,7 +45,7 @@ public class TransactionModel {
         return amount;
     }
 
-    public TransactionModel setAmount(Double amount) {
+    public Transaction setAmount(Double amount) {
         this.amount = amount;
         return this;
     }
@@ -48,7 +54,7 @@ public class TransactionModel {
         return description;
     }
 
-    public TransactionModel setDescription(String description) {
+    public Transaction setDescription(String description) {
         this.description = description;
         return this;
     }
@@ -57,7 +63,7 @@ public class TransactionModel {
         return paymentMethod;
     }
 
-    public TransactionModel setPaymentMethod(PaymentMethod paymentMethod) {
+    public Transaction setPaymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
         return this;
     }
@@ -66,7 +72,7 @@ public class TransactionModel {
         return cardNumber;
     }
 
-    public TransactionModel setCardNumber(String cardNumber) {
+    public Transaction setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
         return this;
     }
@@ -75,7 +81,7 @@ public class TransactionModel {
         return customerName;
     }
 
-    public TransactionModel setCustomerName(String customerName) {
+    public Transaction setCustomerName(String customerName) {
         this.customerName = customerName;
         return this;
     }
@@ -84,7 +90,7 @@ public class TransactionModel {
         return cardExpirationDate;
     }
 
-    public TransactionModel setCardExpirationDate(String cardExpirationDate) {
+    public Transaction setCardExpirationDate(String cardExpirationDate) {
         this.cardExpirationDate = cardExpirationDate;
         return this;
     }
@@ -93,7 +99,7 @@ public class TransactionModel {
         return cvv;
     }
 
-    public TransactionModel setCvv(String cvv) {
+    public Transaction setCvv(String cvv) {
         this.cvv = cvv;
         return this;
     }
