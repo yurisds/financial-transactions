@@ -1,7 +1,9 @@
 package com.technical.challenge.financialtransactions.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document
 public class TransactionModel {
 
     @Id
