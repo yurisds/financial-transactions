@@ -2,12 +2,13 @@ package com.technical.challenge.financialtransactions.exception;
 
 import org.springframework.http.HttpStatus;
 
-import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
-import static org.springframework.http.HttpStatus.NOT_FOUND;
+import static org.springframework.http.HttpStatus.*;
 
 public enum BaseException {
 
     TRANSACTION_NOT_FOUND ("FT-001", NOT_FOUND, "Transação não encontrada"),
+    INVALID_CARD_NUMBER ("FT-002", BAD_REQUEST, "Numero do cartão inválido"),
+    INCORRECT_PAYMENT_TYPE ("FT-003", BAD_REQUEST, "Tipo do pagamento inválido"),
     UNKNOWN_ERROR ("FT-500", INTERNAL_SERVER_ERROR, "Erro desconhecido");
 
     private final String code;

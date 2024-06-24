@@ -1,9 +1,11 @@
 package com.technical.challenge.financialtransactions.service;
 
 import com.technical.challenge.financialtransactions.exception.ServiceException;
+import com.technical.challenge.financialtransactions.mapper.TransactionMapper;
 import com.technical.challenge.financialtransactions.model.PaymentMethod;
 import com.technical.challenge.financialtransactions.model.Transaction;
 import com.technical.challenge.financialtransactions.repository.TransactionRepository;
+import com.technical.challenge.financialtransactions.resource.request.TransactionRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,9 +17,12 @@ import static com.technical.challenge.financialtransactions.exception.BaseExcept
 public class TransactionService {
 
     private final TransactionRepository transactionRepository;
+    private final StatementService statementService;
 
-    public TransactionService(TransactionRepository transactionRepository) {
+    public TransactionService(TransactionRepository transactionRepository, StatementService statementService
+    ) {
         this.transactionRepository = transactionRepository;
+        this.statementService = statementService;
     }
 
     public List<Transaction> findAll() {
@@ -32,9 +37,12 @@ public class TransactionService {
         return transactionRepository.findByTransactionId(transactionId).orElseThrow(() -> new ServiceException(TRANSACTION_NOT_FOUND));
     }
 
-    public Transaction createTransaction(Transaction transaction) {
+    public Transaction createTransaction(TransactionRequest transactionRequest) {
         try {
-            return transactionRepository.save(transaction);
+            var transaction = transactionRepository.save(TransactionMapper.toTransaction(transactionRequest));
+            statementService.createStatement(transaction);
+
+            return transaction;
         } catch (Exception ex) {
             throw new ServiceException(UNKNOWN_ERROR);
         }
