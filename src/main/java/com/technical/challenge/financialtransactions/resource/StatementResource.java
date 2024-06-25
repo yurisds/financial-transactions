@@ -6,6 +6,7 @@ import com.technical.challenge.financialtransactions.resource.response.Statement
 import com.technical.challenge.financialtransactions.service.StatementService;
 import com.technical.challenge.financialtransactions.service.impl.StatementServiceImpl;
 import com.technical.challenge.financialtransactions.service.StatementTransactionService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
