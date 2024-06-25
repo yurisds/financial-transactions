@@ -13,4 +13,5 @@ public interface StatementService {
     void createStatement(Transaction transaction);
     Statement findStatementByTransactionId(String transactionId);
     List<Statement> findStatementsByCriteria(LocalDate paymentDate, Status status);
+    void updateStatusByCriteria (LocalDate paymentDate, Status status);
 }

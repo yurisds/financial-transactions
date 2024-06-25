@@ -37,8 +37,14 @@ public class StatementResource {
     }
 
     @GetMapping()
-    public List<Statement> getAllStatementWithTransaction(@RequestParam(value = "paymentDate", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate paymentDate,
+    public List<Statement> getAllStatement(@RequestParam(value = "paymentDate", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate paymentDate,
                                                           @RequestParam(value = "status", required = false) Status status) {
         return statementService.findStatementsByCriteria(paymentDate, status);
+    }
+
+    @GetMapping("/transaction")
+    public List<StatementResponse> getAllStatementWithTransaction(@RequestParam(value = "paymentDate", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate paymentDate,
+                                                          @RequestParam(value = "status", required = false) Status status) {
+        return statementTransactionService.getAllStatementWithTransaction(paymentDate, status);
     }
 }
