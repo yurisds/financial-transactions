@@ -4,6 +4,7 @@ import com.technical.challenge.financialtransactions.model.PaymentMethod;
 import com.technical.challenge.financialtransactions.model.Transaction;
 import com.technical.challenge.financialtransactions.resource.request.TransactionRequest;
 import com.technical.challenge.financialtransactions.service.TransactionService;
+import com.technical.challenge.financialtransactions.service.TransactionServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public class TransactionResource {
 
     private final TransactionService transactionService;
 
-    public TransactionResource(TransactionService transactionService) {
+    public TransactionResource(TransactionServiceImpl transactionService) {
         this.transactionService = transactionService;
     }
 
@@ -31,7 +32,7 @@ public class TransactionResource {
     }
 
     @GetMapping("/{transactionId}")
-    public Transaction findAllByCriteria( @PathVariable("transactionId") String transactionId) {
+    public Transaction findByTransactionId( @PathVariable("transactionId") String transactionId) {
         return transactionService.findByTransactionId(transactionId);
     }
 

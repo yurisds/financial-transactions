@@ -26,9 +26,9 @@ public enum Status {
 
     @JsonCreator
     public static Status fromString(String value) {
-        for (Status paymentMethod : Status.values()) {
-            if (paymentMethod.value.equalsIgnoreCase(value)) {
-                return paymentMethod;
+        for (Status status : Status.values()) {
+            if (status.value.equalsIgnoreCase(value)) {
+                return status;
             }
         }
         throw new IllegalArgumentException("Invalid status: " + value);

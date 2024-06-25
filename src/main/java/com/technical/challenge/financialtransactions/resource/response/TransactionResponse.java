@@ -1,15 +1,9 @@
-package com.technical.challenge.financialtransactions.model;
+package com.technical.challenge.financialtransactions.resource.response;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.technical.challenge.financialtransactions.model.PaymentMethod;
 
-import java.util.UUID;
+public class TransactionResponse {
 
-@Document
-public class Transaction extends BaseModel {
-
-    @Id
-    private String transactionId;
     private String merchantCode;
     private Double amount;
     private String description;
@@ -19,24 +13,11 @@ public class Transaction extends BaseModel {
     private String cardExpirationDate;
     private String cvv;
 
-    public Transaction() {
-        this.transactionId = UUID.randomUUID().toString();
-    }
-
-    public String getTransactionId() {
-        return transactionId;
-    }
-
-    public Transaction setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
-        return this;
-    }
-
     public String getMerchantCode() {
         return merchantCode;
     }
 
-    public Transaction setMerchantCode(String merchantCode) {
+    public TransactionResponse setMerchantCode(String merchantCode) {
         this.merchantCode = merchantCode;
         return this;
     }
@@ -45,7 +26,7 @@ public class Transaction extends BaseModel {
         return amount;
     }
 
-    public Transaction setAmount(Double amount) {
+    public TransactionResponse setAmount(Double amount) {
         this.amount = amount;
         return this;
     }
@@ -54,7 +35,7 @@ public class Transaction extends BaseModel {
         return description;
     }
 
-    public Transaction setDescription(String description) {
+    public TransactionResponse setDescription(String description) {
         this.description = description;
         return this;
     }
@@ -63,7 +44,7 @@ public class Transaction extends BaseModel {
         return paymentMethod;
     }
 
-    public Transaction setPaymentMethod(PaymentMethod paymentMethod) {
+    public TransactionResponse setPaymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
         return this;
     }
@@ -72,7 +53,7 @@ public class Transaction extends BaseModel {
         return cardNumber;
     }
 
-    public Transaction setCardNumber(String cardNumber) {
+    public TransactionResponse setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
         return this;
     }
@@ -81,7 +62,7 @@ public class Transaction extends BaseModel {
         return customerName;
     }
 
-    public Transaction setCustomerName(String customerName) {
+    public TransactionResponse setCustomerName(String customerName) {
         this.customerName = customerName;
         return this;
     }
@@ -90,7 +71,7 @@ public class Transaction extends BaseModel {
         return cardExpirationDate;
     }
 
-    public Transaction setCardExpirationDate(String cardExpirationDate) {
+    public TransactionResponse setCardExpirationDate(String cardExpirationDate) {
         this.cardExpirationDate = cardExpirationDate;
         return this;
     }
@@ -99,7 +80,7 @@ public class Transaction extends BaseModel {
         return cvv;
     }
 
-    public Transaction setCvv(String cvv) {
+    public TransactionResponse setCvv(String cvv) {
         this.cvv = cvv;
         return this;
     }

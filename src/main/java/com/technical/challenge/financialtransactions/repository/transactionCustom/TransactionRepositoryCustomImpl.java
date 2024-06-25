@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
 import java.util.List;
+import java.util.Objects;
 
 public class TransactionRepositoryCustomImpl implements TransactionRepositoryCustom {
 
@@ -19,13 +20,13 @@ public class TransactionRepositoryCustomImpl implements TransactionRepositoryCus
     public List<Transaction> findTransactionsByCriteria(String description, PaymentMethod paymentMethod, String customerName) {
         var query = new Query();
 
-        if (description != null && !description.isEmpty()) {
+        if (Objects.nonNull(description) && !description.isEmpty()) {
             query.addCriteria(Criteria.where("description").is(description));
         }
-        if (paymentMethod != null) {
+        if (Objects.nonNull(paymentMethod)) {
             query.addCriteria(Criteria.where("paymentMethod").is(paymentMethod));
         }
-        if (customerName != null && !customerName.isEmpty()) {
+        if (Objects.nonNull(customerName) && !customerName.isEmpty()) {
             query.addCriteria(Criteria.where("customerName").is(customerName));
         }
 
