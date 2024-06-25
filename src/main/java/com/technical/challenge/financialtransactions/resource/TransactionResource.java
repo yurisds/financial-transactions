@@ -6,7 +6,7 @@ import com.technical.challenge.financialtransactions.model.Transaction;
 import com.technical.challenge.financialtransactions.resource.request.TransactionRequest;
 import com.technical.challenge.financialtransactions.resource.response.TransactionResponse;
 import com.technical.challenge.financialtransactions.service.TransactionService;
-import com.technical.challenge.financialtransactions.service.TransactionServiceImpl;
+import com.technical.challenge.financialtransactions.service.impl.TransactionServiceImpl;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 

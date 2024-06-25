@@ -2,7 +2,7 @@ package com.technical.challenge.financialtransactions.job;
 
 import com.technical.challenge.financialtransactions.model.Status;
 import com.technical.challenge.financialtransactions.service.StatementService;
-import com.technical.challenge.financialtransactions.service.StatementServiceImpl;
+import com.technical.challenge.financialtransactions.service.impl.StatementServiceImpl;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

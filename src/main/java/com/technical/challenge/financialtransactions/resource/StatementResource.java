@@ -4,7 +4,7 @@ import com.technical.challenge.financialtransactions.model.Statement;
 import com.technical.challenge.financialtransactions.model.Status;
 import com.technical.challenge.financialtransactions.resource.response.StatementResponse;
 import com.technical.challenge.financialtransactions.service.StatementService;
-import com.technical.challenge.financialtransactions.service.StatementServiceImpl;
+import com.technical.challenge.financialtransactions.service.impl.StatementServiceImpl;
 import com.technical.challenge.financialtransactions.service.StatementTransactionService;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;

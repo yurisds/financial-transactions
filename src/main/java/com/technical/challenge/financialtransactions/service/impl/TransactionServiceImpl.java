@@ -1,4 +1,4 @@
-package com.technical.challenge.financialtransactions.service;
+package com.technical.challenge.financialtransactions.service.impl;
 
 import com.technical.challenge.financialtransactions.exception.ServiceException;
 import com.technical.challenge.financialtransactions.mapper.TransactionMapper;
@@ -7,6 +7,8 @@ import com.technical.challenge.financialtransactions.model.Transaction;
 import com.technical.challenge.financialtransactions.repository.TransactionRepository;
 import com.technical.challenge.financialtransactions.resource.request.TransactionRequest;
 import com.technical.challenge.financialtransactions.resource.response.TransactionResponse;
+import com.technical.challenge.financialtransactions.service.StatementService;
+import com.technical.challenge.financialtransactions.service.TransactionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
