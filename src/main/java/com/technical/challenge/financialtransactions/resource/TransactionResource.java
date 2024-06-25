@@ -30,8 +30,8 @@ public class TransactionResource {
     @GetMapping("/filter")
     public List<TransactionResponse> findAllByCriteria( @RequestParam(required = false) String description,
                                                 @RequestParam(required = false) PaymentMethod paymentMethod,
-                                                @RequestParam(required = false) String customerName){
-        return transactionService.findTransactionsByCriteria(description, paymentMethod, customerName);
+                                                @RequestParam(required = false) String cardHolderName){
+        return transactionService.findTransactionsByCriteria(description, paymentMethod, cardHolderName);
     }
 
     @GetMapping("/{transactionId}")

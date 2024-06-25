@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface TransactionRepositoryCustom {
 
-    List<Transaction> findTransactionsByCriteria(String description, PaymentMethod paymentMethod, String customerName);
+    List<Transaction> findTransactionsByCriteria(String description, PaymentMethod paymentMethod, String cardHolderName);
 
 }

@@ -44,10 +44,10 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public List<TransactionResponse> findTransactionsByCriteria(String description, PaymentMethod paymentMethod, String customerName) {
-        LOGGER.info("m=findTransactionsByCriteria stage=init description={} paymentMethod={} customerName={}", description, paymentMethod, customerName);
+    public List<TransactionResponse> findTransactionsByCriteria(String description, PaymentMethod paymentMethod, String cardHolderName) {
+        LOGGER.info("m=findTransactionsByCriteria stage=init description={} paymentMethod={} cardHolderName={}", description, paymentMethod, cardHolderName);
         try {
-            return transactionRepository.findTransactionsByCriteria(description, paymentMethod, customerName)
+            return transactionRepository.findTransactionsByCriteria(description, paymentMethod, cardHolderName)
                     .stream().map(TransactionMapper::toTransactionResponse).toList();
         } catch (Exception ex) {
             LOGGER.error("m=findTransactionsByCriteria stage=error message={}", ex.getMessage());

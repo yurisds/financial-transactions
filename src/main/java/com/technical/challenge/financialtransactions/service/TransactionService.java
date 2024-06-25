@@ -10,7 +10,7 @@ import java.util.List;
 public interface TransactionService {
 
     List<Transaction> findAll();
-    List<TransactionResponse> findTransactionsByCriteria(String description, PaymentMethod paymentMethod, String customerName);
+    List<TransactionResponse> findTransactionsByCriteria(String description, PaymentMethod paymentMethod, String cardHolderName);
     Transaction findByTransactionId(String transactionId);
     Transaction createTransaction(TransactionRequest transactionRequest);
 

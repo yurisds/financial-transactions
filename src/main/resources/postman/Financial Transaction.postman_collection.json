@@ -1,0 +1,340 @@
+{
+	"info": {
+		"_postman_id": "04fede52-8463-45f5-9051-4fb90e0d5834",
+		"name": "Financial Transaction",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7698603"
+	},
+	"item": [
+		{
+			"name": "Transaction",
+			"item": [
+				{
+					"name": "Create Transaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"merchantCode\": \"3f5a45b2-135a-4660-aef1-0f0bbe5ea8df\",\r\n    \"amount\": 150.0,\r\n    \"description\": \"Mercearia do Johnson\",\r\n    \"paymentMethod\": \"credit\",\r\n    \"cardNumber\": \"0000 0000 0000 0000\",\r\n    \"cardHolderName\": \"LIGIA J CARDOSO\",\r\n    \"cardExpirationDate\": \"05/30\",\r\n    \"cvv\": \"289\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/transaction",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find all Transactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/transaction",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Transactions With Filter",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transactionId\": \"123e4567-e89b-12d3-a456-426614174000\",\r\n    \"merchantCode\": \"987e6543-e21b-34c5-d678-426614170000\",\r\n    \"amount\": 100.00,\r\n    \"description\": \"Mercearia do Johnson\",\r\n    \"paymentMethod\": \"credit\",\r\n    \"cardNumber\": \"0000 0000 0000 1234\",\r\n    \"customerName\": \"JOSUE MIRANDA\",\r\n    \"cardExpirationDate\": \"12/25\",\r\n    \"cvv\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/transaction/filter",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"transaction",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "description",
+									"value": "Mercearia do Johnson",
+									"disabled": true
+								},
+								{
+									"key": "cardHolderName",
+									"value": "JOSUE B MIRANDA",
+									"disabled": true
+								},
+								{
+									"key": "paymentMethod",
+									"value": "credit",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By TransactionId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transactionId\": \"123e4567-e89b-12d3-a456-426614174000\",\r\n    \"merchantCode\": \"987e6543-e21b-34c5-d678-426614170000\",\r\n    \"amount\": 100.00,\r\n    \"description\": \"Mercearia do Johnson\",\r\n    \"paymentMethod\": \"credit\",\r\n    \"cardNumber\": \"0000 0000 0000 1234\",\r\n    \"customerName\": \"JOSUE MIRANDA\",\r\n    \"cardExpirationDate\": \"12/25\",\r\n    \"cvv\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/transaction/4f717bd4-83b4-4e52-8d8a-86a6cf2bd397",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"transaction",
+								"4f717bd4-83b4-4e52-8d8a-86a6cf2bd397"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Statement",
+			"item": [
+				{
+					"name": "Find Statement By TransactionId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transactionId\": \"123e4567-e89b-12d3-a456-426614174000\",\r\n    \"merchantCode\": \"987e6543-e21b-34c5-d678-426614170000\",\r\n    \"amount\": 100.00,\r\n    \"description\": \"Mercearia do Johnson\",\r\n    \"paymentMethod\": \"credit\",\r\n    \"cardNumber\": \"0000 0000 0000 1234\",\r\n    \"customerName\": \"JOSUE MIRANDA\",\r\n    \"cardExpirationDate\": \"12/25\",\r\n    \"cvv\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/statement/4f717bd4-83b4-4e52-8d8a-86a6cf2bd397",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"statement",
+								"4f717bd4-83b4-4e52-8d8a-86a6cf2bd397"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Statement With Transaction By TransactionId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transactionId\": \"123e4567-e89b-12d3-a456-426614174000\",\r\n    \"merchantCode\": \"987e6543-e21b-34c5-d678-426614170000\",\r\n    \"amount\": 100.00,\r\n    \"description\": \"Mercearia do Johnson\",\r\n    \"paymentMethod\": \"credit\",\r\n    \"cardNumber\": \"0000 0000 0000 1234\",\r\n    \"customerName\": \"JOSUE MIRANDA\",\r\n    \"cardExpirationDate\": \"12/25\",\r\n    \"cvv\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/statement/transaction/4f717bd4-83b4-4e52-8d8a-86a6cf2bd397",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"statement",
+								"transaction",
+								"4f717bd4-83b4-4e52-8d8a-86a6cf2bd397"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Statement With Transaction",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transactionId\": \"123e4567-e89b-12d3-a456-426614174000\",\r\n    \"merchantCode\": \"987e6543-e21b-34c5-d678-426614170000\",\r\n    \"amount\": 100.00,\r\n    \"description\": \"Mercearia do Johnson\",\r\n    \"paymentMethod\": \"credit\",\r\n    \"cardNumber\": \"0000 0000 0000 1234\",\r\n    \"customerName\": \"JOSUE MIRANDA\",\r\n    \"cardExpirationDate\": \"12/25\",\r\n    \"cvv\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/statement/transaction",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"statement",
+								"transaction"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "waiting_funds",
+									"disabled": true
+								},
+								{
+									"key": "paymentDate",
+									"value": "2024-06-25",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Statement",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transactionId\": \"123e4567-e89b-12d3-a456-426614174000\",\r\n    \"merchantCode\": \"987e6543-e21b-34c5-d678-426614170000\",\r\n    \"amount\": 100.00,\r\n    \"description\": \"Mercearia do Johnson\",\r\n    \"paymentMethod\": \"credit\",\r\n    \"cardNumber\": \"0000 0000 0000 1234\",\r\n    \"customerName\": \"JOSUE MIRANDA\",\r\n    \"cardExpirationDate\": \"12/25\",\r\n    \"cvv\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/statement",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"statement"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "paid",
+									"disabled": true
+								},
+								{
+									"key": "paymentDate",
+									"value": "2024-06-24",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "JOB To Change Statement Status",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/statement/job",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"statement",
+								"job"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	]
+}

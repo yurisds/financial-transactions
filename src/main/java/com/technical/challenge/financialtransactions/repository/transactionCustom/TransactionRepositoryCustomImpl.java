@@ -17,7 +17,7 @@ public class TransactionRepositoryCustomImpl implements TransactionRepositoryCus
         this.mongoTemplate = mongoTemplate;
     }
 
-    public List<Transaction> findTransactionsByCriteria(String description, PaymentMethod paymentMethod, String customerName) {
+    public List<Transaction> findTransactionsByCriteria(String description, PaymentMethod paymentMethod, String cardHolderName) {
         var query = new Query();
 
         if (Objects.nonNull(description) && !description.isEmpty()) {
@@ -26,8 +26,8 @@ public class TransactionRepositoryCustomImpl implements TransactionRepositoryCus
         if (Objects.nonNull(paymentMethod)) {
             query.addCriteria(Criteria.where("paymentMethod").is(paymentMethod));
         }
-        if (Objects.nonNull(customerName) && !customerName.isEmpty()) {
-            query.addCriteria(Criteria.where("customerName").is(customerName));
+        if (Objects.nonNull(cardHolderName) && !cardHolderName.isEmpty()) {
+            query.addCriteria(Criteria.where("cardHolderName").is(cardHolderName));
         }
 
         return mongoTemplate.find(query, Transaction.class);
