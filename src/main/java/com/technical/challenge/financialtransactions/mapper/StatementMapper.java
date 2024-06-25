@@ -16,7 +16,7 @@ public class StatementMapper {
                 .setPaymentMethod(transaction.getPaymentMethod())
                 .setStatus(statement.getStatus())
                 .setCardNumber(transaction.getCardNumber())
-                .setCustomerName(transaction.getCustomerName())
+                .setCardHolderName(transaction.getCardHolderName())
                 .setPaymentDate(statement.getPaymentDate());
 
     }

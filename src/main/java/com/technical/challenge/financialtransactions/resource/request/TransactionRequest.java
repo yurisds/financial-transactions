@@ -2,15 +2,35 @@ package com.technical.challenge.financialtransactions.resource.request;
 
 import com.technical.challenge.financialtransactions.model.PaymentMethod;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class TransactionRequest {
 
+    @NotBlank
     private String merchantCode;
+
+    @NotNull
     private Double amount;
+
+    @NotBlank
     private String description;
+
+    @NotNull
     private PaymentMethod paymentMethod;
+
+    @NotBlank
     private String cardNumber;
-    private String customerName;
+
+    @NotBlank
+    private String cardHolderName;
+
+    @NotBlank
     private String cardExpirationDate;
+
+    @NotBlank
+    @Size(min = 3, max = 3)
     private String cvv;
 
     public String getMerchantCode() {
@@ -58,12 +78,12 @@ public class TransactionRequest {
         return this;
     }
 
-    public String getCustomerName() {
-        return customerName;
+    public String getCardHolderName() {
+        return cardHolderName;
     }
 
-    public TransactionRequest setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public TransactionRequest setCardHolderName(String cardHolderName) {
+        this.cardHolderName = cardHolderName;
         return this;
     }
 

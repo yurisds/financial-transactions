@@ -15,7 +15,7 @@ public class Transaction extends BaseModel {
     private String description;
     private PaymentMethod paymentMethod;
     private String cardNumber;
-    private String customerName;
+    private String cardHolderName;
     private String cardExpirationDate;
     private String cvv;
 
@@ -77,12 +77,12 @@ public class Transaction extends BaseModel {
         return this;
     }
 
-    public String getCustomerName() {
-        return customerName;
+    public String getCardHolderName() {
+        return cardHolderName;
     }
 
-    public Transaction setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public Transaction setCardHolderName(String cardHolderName) {
+        this.cardHolderName = cardHolderName;
         return this;
     }
 

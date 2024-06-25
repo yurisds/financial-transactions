@@ -14,7 +14,7 @@ public class StatementResponse {
     private PaymentMethod paymentMethod;
     private Status status;
     private String cardNumber;
-    private String customerName;
+    private String cardHolderName;
     private LocalDateTime paymentDate;
 
     public String getId() {
@@ -80,12 +80,12 @@ public class StatementResponse {
         return this;
     }
 
-    public String getCustomerName() {
-        return customerName;
+    public String getCardHolderName() {
+        return cardHolderName;
     }
 
-    public StatementResponse setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public StatementResponse setCardHolderName(String cardHolderName) {
+        this.cardHolderName = cardHolderName;
         return this;
     }
 

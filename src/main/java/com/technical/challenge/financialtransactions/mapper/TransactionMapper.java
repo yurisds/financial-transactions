@@ -3,6 +3,7 @@ package com.technical.challenge.financialtransactions.mapper;
 import com.technical.challenge.financialtransactions.exception.ServiceException;
 import com.technical.challenge.financialtransactions.model.Transaction;
 import com.technical.challenge.financialtransactions.resource.request.TransactionRequest;
+import com.technical.challenge.financialtransactions.resource.response.TransactionResponse;
 
 import java.util.Objects;
 
@@ -18,9 +19,22 @@ public class TransactionMapper {
                 .setDescription(request.getDescription())
                 .setPaymentMethod(request.getPaymentMethod())
                 .setCardNumber(maskCardNumber(request.getCardNumber()))
-                .setCustomerName(request.getCustomerName())
+                .setCardHolderName(request.getCardHolderName())
                 .setCardExpirationDate(request.getCardExpirationDate())
                 .setCvv(request.getCvv());
+    }
+
+    public static TransactionResponse toTransactionResponse(Transaction transaction) {
+
+        return new TransactionResponse()
+                .setMerchantCode(transaction.getMerchantCode())
+                .setAmount(transaction.getAmount())
+                .setDescription(transaction.getDescription())
+                .setPaymentMethod(transaction.getPaymentMethod())
+                .setCardNumber(maskCardNumber(transaction.getCardNumber()))
+                .setCardHolderName(transaction.getCardHolderName())
+                .setCardExpirationDate(transaction.getCardExpirationDate())
+                .setCvv(transaction.getCvv());
     }
 
     private static String maskCardNumber(String cardNumber) {

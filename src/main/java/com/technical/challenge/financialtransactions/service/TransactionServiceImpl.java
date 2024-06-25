@@ -6,6 +6,7 @@ import com.technical.challenge.financialtransactions.model.PaymentMethod;
 import com.technical.challenge.financialtransactions.model.Transaction;
 import com.technical.challenge.financialtransactions.repository.TransactionRepository;
 import com.technical.challenge.financialtransactions.resource.request.TransactionRequest;
+import com.technical.challenge.financialtransactions.resource.response.TransactionResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -41,10 +42,11 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public List<Transaction> findTransactionsByCriteria(String description, PaymentMethod paymentMethod, String customerName) {
+    public List<TransactionResponse> findTransactionsByCriteria(String description, PaymentMethod paymentMethod, String customerName) {
         LOGGER.info("m=findTransactionsByCriteria stage=init description={} paymentMethod={} customerName={}", description, paymentMethod, customerName);
         try {
-            return transactionRepository.findTransactionsByCriteria(description, paymentMethod, customerName);
+            return transactionRepository.findTransactionsByCriteria(description, paymentMethod, customerName)
+                    .stream().map(TransactionMapper::toTransactionResponse).toList();
         } catch (Exception ex) {
             LOGGER.error("m=findTransactionsByCriteria stage=error message={}", ex.getMessage());
             throw new ServiceException(UNKNOWN_ERROR);
